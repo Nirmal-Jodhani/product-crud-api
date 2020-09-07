@@ -16,8 +16,6 @@ exports.findAll = (req, res) => {
 
 // Create and Save a new Product
 exports.create = (req, res) => {
-    // console.log('request inside create', req.body);
-
     // Create a Product
     const product = new Product(req.body);
     // Save product in the database
@@ -25,7 +23,6 @@ exports.create = (req, res) => {
     .then(data => {
         res.send(data);
     }).catch(err => {
-        // console.log('error in product', err);
         res.status(500).send({
             message: err.message || "Some error occurred while creating the product."
         });
